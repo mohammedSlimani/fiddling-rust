@@ -23,8 +23,7 @@ fn main() {
         .read_line(&mut difficulty)
         .expect("Error reading the difficulty line");
 
-
-    let difficulty:i64 = match difficulty.as_str().trim() {
+    let difficulty: i64 = match difficulty.as_str().trim() {
         "1" => 10,
         "2" => 100,
         "3" => 1_000,
@@ -38,7 +37,11 @@ fn main() {
     };
 
     let computer_guess = rand::thread_rng().gen_range(0..=difficulty);
-    println!("Guessed: {} ", computer_guess);
+
+    game(&computer_guess);
+
+}
+fn game(computer_guess: &i64) {
     let mut tries = 0;
 
     loop {
@@ -52,7 +55,7 @@ fn main() {
             .expect("Error reading the guess line");
 
         // Shadowing the guess variable with a different type variable
-        let guess:i64 = match guess.trim().parse() {
+        let guess: i64 = match guess.trim().parse() {
             Ok(num) => num,
             Err(_) => {
                 println!("\n{} is not a number :p \n ", guess.trim());
