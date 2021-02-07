@@ -12,6 +12,10 @@ impl Rectangle {
     fn can_hold(&self, other: &Rectangle) -> bool {
         other.width <= self.width && other.height <= self.height
     }
+
+    fn square(size: usize) -> Rectangle {
+        Rectangle { width: size, height: size }
+    }
 }
 
 fn main() {
@@ -43,4 +47,8 @@ fn main() {
     println!("Can {:?} contain {:?} ? {}", rect, rect2, rect.can_hold(&rect2));
     println!("Can {:?} contain {:?} ? {}", rect, rect3, rect.can_hold(&rect3));
 
+    // square is a function not a method!
+    let my_square = Rectangle::square(156);
+
+    println!("Here is a square {:?} ", my_square)
 }
