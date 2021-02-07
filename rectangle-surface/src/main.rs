@@ -1,10 +1,13 @@
+#[derive(Debug)]
 struct Rectangle {
     width: usize,
-    hight: usize,
+    height: usize,
 }
 
-fn calculate_surface(rect: &Rectangle) -> usize {
-    rect.width * rect.hight
+impl Rectangle {
+    fn area (&self) -> usize {
+        self.width * self.height
+    }
 }
 
 fn main() {
@@ -12,10 +15,10 @@ fn main() {
 
     let rect = Rectangle {
         width: 100,
-        hight: 150,
+        height: 150,
     };
 
-    let surface = calculate_surface(&rect);
+    let area = rect.area();
 
-    println!("the surface of your Rectangle is : {}", surface)
+    println!("the area of your Rectangle : {:?} is {}", rect, area)
 }
