@@ -50,5 +50,8 @@ fn main() {
     // square is a function not a method!
     let my_square = Rectangle::square(156);
 
+    // you could also use the method, but you will need to specify the &self ...
+    println!("is this possible {}", Rectangle::area(&rect1));
+
     println!("Here is a square {:?} ", my_square)
 }
