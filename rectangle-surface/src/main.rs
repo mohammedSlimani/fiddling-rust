@@ -8,6 +8,10 @@ impl Rectangle {
     fn area (&self) -> usize {
         self.width * self.height
     }
+
+    fn can_hold(&self, other: &Rectangle) -> bool {
+        other.width <= self.width && other.height <= self.height
+    }
 }
 
 fn main() {
@@ -18,7 +22,25 @@ fn main() {
         height: 150,
     };
 
+    let rect1 = Rectangle {
+        width: 90,
+        ..rect
+    };
+
+    let rect2 = Rectangle {
+        ..rect
+    };
+
+    let rect3 = Rectangle {
+        width: 111,
+        height: 112
+    };
+
     let area = rect.area();
 
-    println!("the area of your Rectangle : {:?} is {}", rect, area)
+    println!("the area of your Rectangle : {:?} is {}", rect, area);
+    println!("Can {:?} contain {:?} ? {}", rect, rect1, rect.can_hold(&rect1));
+    println!("Can {:?} contain {:?} ? {}", rect, rect2, rect.can_hold(&rect2));
+    println!("Can {:?} contain {:?} ? {}", rect, rect3, rect.can_hold(&rect3));
+
 }
