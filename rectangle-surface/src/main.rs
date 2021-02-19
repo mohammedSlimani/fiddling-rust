@@ -51,6 +51,7 @@ fn main() {
     let my_square = Rectangle::square(156);
 
     // you could also use the method, but you will need to specify the &self ...
+    // I wonder if this is possible to call on non Rectangle things... -> Nope it is not
     println!("is this possible {}", Rectangle::area(&rect1));
 
     println!("Here is a square {:?} ", my_square)
